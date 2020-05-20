@@ -46,10 +46,11 @@ def print_word_freq(file):
     word_dict = get_word_dict(word_list)
     alpha_dict = dict(sorted(word_dict.items()))
     sorted_dict = dict(sorted(alpha_dict.items(), key=get_count_value, reverse=True))
+    i = 0
     for word, value in sorted_dict.items():
-        if value > 5:
+        if i < 10:
             print(f"{word.rjust(len(longest_word))} | {str(value).ljust(2)} {value * '*'}")
-        
+            i += 1
 
 
 if __name__ == "__main__":
