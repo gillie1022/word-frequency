@@ -39,7 +39,6 @@ def get_word_dict(word_list):
 def get_count_value(seq):
     return seq[1]
 
-
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     opened_file = file.open()
@@ -49,7 +48,7 @@ def print_word_freq(file):
     longest_word = get_longest_word(word_list)
     word_dict = get_word_dict(word_list)
     alpha_dict = dict(sorted(word_dict.items()))
-    sorted_dict = dict(sorted(alpha_dict.items(), key = get_count_value, reverse=True))
+    sorted_dict = dict(sorted(alpha_dict.items(), key=get_count_value, reverse=True))
     for word, value in sorted_dict.items():
         if value > 5:
             print(f"{word.rjust(len(longest_word))} | {str(value).ljust(2)} {value * '*'}")
