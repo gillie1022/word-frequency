@@ -5,11 +5,11 @@ STOP_WORDS = [
 ]
 
 def clean_text(text):
-    import string
+    punct = "!\"#$%&'()*+,./:;<=>?@[\]^_`{|}~"
     text = text.lower()
     text_to_keep = ""
     for char in text:
-        if not char in string.punctuation:
+        if not char in punct:
             text_to_keep += char
     return text_to_keep
 
