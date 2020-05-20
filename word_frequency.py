@@ -27,9 +27,8 @@ def get_word_dict(word_list):
         word_dict[word_list[idx]] = word_list.count(word_list[idx])
     return word_dict
 
-def format_output(sorted_dict):
-    for word in sorted_dict:
-        return f""
+# def get_output(sorted_dict):
+    
 
 
 def print_word_freq(file):
@@ -39,8 +38,9 @@ def print_word_freq(file):
     words = clean_text(text).split()
     word_list = remove_from_list(words, STOP_WORDS)
     word_dict = get_word_dict(word_list)
-    sorted_dict = sorted(word_dict.items(), key = lambda x: x[1], reverse=True)
-    print(sorted_dict)
+    sorted_dict = dict(sorted(word_dict.items(), key = lambda x: x[1]))
+    for word, value in sorted_dict.items():
+        print(f"{word.rjust(8)} | {value} {int(value) * '*'}")
         
 
 
