@@ -33,8 +33,26 @@ def get_word_dict(word_list):
         for word in word_list
     }
 
-def get_count_value(seq):
+def get_output_list(a_dict):
+    output_list = []
+    i = 0
+    for item in a_dict.items():
+        if i < 10:
+            output_list.append(item)
+            i += 1
+    return output_list
+
+def get_first_value(seq):
+    return seq[0]
+
+def get_second_value(seq):
     return seq[1]
+
+def get_output_word_list(a_list):
+    return[
+        get_first_value(item)
+        for item in a_list
+    ]
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
@@ -42,15 +60,15 @@ def print_word_freq(file):
     text = opened_file.read()
     words = clean_text(text).split()
     word_list = remove_from_list(words, STOP_WORDS)
-    longest_word = get_longest_word(word_list)
     word_dict = get_word_dict(word_list)
     alpha_dict = dict(sorted(word_dict.items()))
-    sorted_dict = dict(sorted(alpha_dict.items(), key=get_count_value, reverse=True))
-    i = 0
-    for word, value in sorted_dict.items():
-        if i < 10:
-            print(f"{word.rjust(len(longest_word))} | {str(value).ljust(2)} {value * '*'}")
-            i += 1
+    sorted_dict = dict(sorted(alpha_dict.items(), key=get_second_value, reverse=True))
+    output_list = get_output_list(sorted_dict)
+    output_word_list =  get_output_word_list(output_list)
+    longest_word = get_longest_word(output_word_list)
+    for item in output_list:
+        print(f"{get_first_value(item).rjust(len(longest_word) + 2)} | {str(get_second_value(item)).ljust(3)}{int(get_second_value(item)) * '*'}")
+
 
 
 if __name__ == "__main__":
