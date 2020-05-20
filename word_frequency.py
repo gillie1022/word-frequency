@@ -29,8 +29,11 @@ def remove_from_list(list_of_items, items_to_remove):
 
 def get_word_dict(word_list):
     word_dict = {}
-    for idx in range(len(word_list)):
-        word_dict[word_list[idx]] = word_list.count(word_list[idx])
+    for word in word_list:
+        if word in word_dict:
+            word_dict[word] += 1
+        else:
+            word_dict[word] = 1
     return word_dict
 
 def print_word_freq(file):
