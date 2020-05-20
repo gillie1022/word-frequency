@@ -4,7 +4,6 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
-
 def clean_text(text):
     import string
     text = text.lower()
@@ -33,10 +32,6 @@ def get_word_dict(word_list):
     for idx in range(len(word_list)):
         word_dict[word_list[idx]] = word_list.count(word_list[idx])
     return word_dict
-
-# def get_output(sorted_dict):
-    
-
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
