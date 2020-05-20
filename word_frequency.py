@@ -28,13 +28,6 @@ def remove_from_list(list_of_items, items_to_remove):
     ]
 
 def get_word_dict(word_list):
-    # word_dict = {}
-    # for word in word_list:
-    #     if word in word_dict:
-    #         word_dict[word] += 1
-    #     else:
-    #         word_dict[word] = 1
-    # return word_dict
     return {
         word: word_list.count(word)
         for word in word_list
@@ -57,10 +50,6 @@ def print_word_freq(file):
         if value > 5:
             print(f"{word.rjust(len(longest_word))} | {str(value).ljust(2)} {value * '*'}")
         
-
-
-
-
 
 
 if __name__ == "__main__":
