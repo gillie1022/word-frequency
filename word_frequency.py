@@ -14,6 +14,13 @@ def clean_text(text):
             text_to_keep += char
     return text_to_keep
 
+def get_longest_word(text):
+    longest = None
+    for word in text:
+        if longest is None or len(word) > len(longest):
+            longest = word
+    return longest
+
 def remove_from_list(list_of_items, items_to_remove):
     new_list = []
     for item in list_of_items:
@@ -37,10 +44,13 @@ def print_word_freq(file):
     text = opened_file.read()
     words = clean_text(text).split()
     word_list = remove_from_list(words, STOP_WORDS)
+    longest_word = get_longest_word(word_list)
     word_dict = get_word_dict(word_list)
-    sorted_dict = dict(sorted(word_dict.items(), key = lambda x: x[1]))
+    sorted_dict = dict(sorted(word_dict.items(), key = lambda seq: seq[1], reverse=True))
+    
     for word, value in sorted_dict.items():
-        print(f"{word.rjust(8)} | {value} {int(value) * '*'}")
+        if int(value) > 5:
+            print(f"{word.rjust(len(longest_word))} | {str(value).ljust(2)} {value * '*'}")
         
 
 
