@@ -21,11 +21,11 @@ def get_longest_word(text):
     return longest
 
 def remove_from_list(list_of_items, items_to_remove):
-    new_list = []
-    for item in list_of_items:
-        if not item in items_to_remove:
-            new_list.append(item)
-    return(new_list)
+    return [
+        item
+        for item in list_of_items
+        if not item in items_to_remove
+    ]
 
 def get_word_dict(word_list):
     word_dict = {}
