@@ -67,7 +67,7 @@ def print_word_freq(file):
     output_word_list =  get_output_word_list(output_list)
     longest_word = get_longest_word(output_word_list)
     for item in output_list:
-        print(f"{get_first_value(item).rjust(len(longest_word) + 2)} | {str(get_second_value(item)).ljust(3)}{int(get_second_value(item)) * '*'}")
+        print(f"{get_first_value(item).rjust(len(longest_word) + 2)} | {str(get_second_value(item)).ljust(3)}{get_second_value(item) * '*'}")
 
 
 
