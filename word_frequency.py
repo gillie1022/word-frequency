@@ -58,6 +58,7 @@ def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     opened_file = file.open()
     text = opened_file.read()
+    opened_file.close()
     words = clean_text(text).split()
     word_list = remove_from_list(words, STOP_WORDS)
     word_dict = get_word_dict(word_list)
@@ -68,7 +69,6 @@ def print_word_freq(file):
     longest_word = get_longest_word(output_word_list)
     for item in output_list:
         print(f"{get_first_value(item).rjust(len(longest_word) + 2)} | {str(get_second_value(item)).ljust(3)}{get_second_value(item) * '*'}")
-
 
 
 if __name__ == "__main__":
